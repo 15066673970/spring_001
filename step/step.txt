@@ -1,0 +1,28 @@
+spring学习（使用的spring4.2.4版本。参考的是黑马教学视频）
+1-------------创建HelloWorld-------------
+	1》创建web工程，引入jar包。基本的jar文件
+				spring-beans.jar
+				spring-context.jar
+				spring-core.jar
+				spring-expression.jar
+				同时要加入日志jar：com.springsource.org.apache.commons.logging.jar
+				       (可加可不加的com.springsource.org.apache.log4j.jar)
+	2》编写spring的配置文件，最好放在src下，并且起名为applicationcontext.xml
+		其中可以参考文档编写头文件，也可以按照添加约束的步骤来本地管理约束头文件。
+		<!-- 将user对象交给spring容器管理 -->
+		<bean name="user" class="com.jinan.www.bean.User"></bean>
+		
+		2-1》window-preference-xml:xml catalog-add-filesystem-找到spring解压包下的schema文件夹下的
+		beans文件夹下的最新的xsd文件
+		2-2》key type选择schema location
+		2-3》key后面添加   	/上面location中的文件名称 例如：/spring-beans-4.2.xsd
+		
+		
+		2-4>创建application.xml文件，在source视图下先写上<beans></beans>,然后切换到design视图，选中beans，
+		右键选中edit namespace，添加add，先无脑导入一个xsi文件，点击ok，然后重新点击add，选中specify new namespace
+		，点击browser，然后选择select xml catalog entry，选中你添加的xsd文件，然后ok，这时候再把location hint里面
+		的路径去掉后面的文件名，拷贝一下放到namespace name中，最上面的prefix不用管。ok，ok。这时候再去applicationcontext.xml
+		中按alt+/ 就会有提示了，就证明约束导入成功了。
+		
+	3》编写test类测试是否能够拿到spring生产的对象
+	
